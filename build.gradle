@@ -1,0 +1,120 @@
+if(openComponentModuleMode.toBoolean()){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (openComponentModuleMode.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //Bitmap取色
+    compile 'com.android.support:palette-v7:26.1.0'
+    //图片请求
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    //RxJava
+    compile group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: '2.4.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+//    if(openComponentModuleMode.toBoolean()){
+//        compile project(":com_common")
+//    }
+}
+
+//项目主页
+def siteUrl = 'https://github.com/chengfengpiaopiao/CFengBanner'
+def gitUrl = 'git@github.com:chengfengpiaopiao/CFengBanner.git'
+
+group = "com.github.chengfengpiaopiao"
+def libName = "CFengBanner"
+version = "1.0.0"
+
+// 配置maven库，生成POM.xml文件
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name 'quickly apply the banner to the application'
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'chengfengpiaopiao'
+                        name 'chengfengpiaopiao'
+                        email 'chengfengpiaopiao@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+//上传到jcenter
+Properties properties = new Properties()
+properties.load(project.rootProject.file('F:\\HowLearnAndroid\\cfeng_banner\\local.properties').newDataInputStream())
+def userK = properties.getProperty("bintray.user")
+def keyK = properties.getProperty("bintray.apikey")
+bintray {
+    user = userK
+    key = keyK
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = libName
+        desc = 'quickly apply the banner to the application'
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}

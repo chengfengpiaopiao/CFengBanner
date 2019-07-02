@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="#23262F">
+
+    <com.android.grice.cfengbanner.banner.CFengBanner
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="174dp"
+        app:cf_view_page_margin="34dp"
+        app:cf_banner_page_margin="5dp"
+        app:cf_un_checked_page_scale="0.9"
+        app:cf_auto_scroller="true"
+        app:cf_index_margin="10"
+        app:cf_index_select="@drawable/cf_index_select"
+        app:cf_index_unselect="@drawable/cf_index_unselected"
+        app:cf_banner_item_default="@layout/banner_item"
+        app:cf_banner_index_container="@layout/index_default_circle_dot"
+        app:cf_img_radius="10dp"
+        app:cf_img_shade_radius="10dp"
+        app:cf_img_shade_color="#FF23262F"
+        app:cf_use_palette="false"
+        app:cf_system_provider_load_url="true"
+        app:cf_banner_img_scale="1.4"
+        app:cf_banner_img_width="315dp"
+        app:cf_banner_img_height="160dp">
+
+    </com.android.grice.cfengbanner.banner.CFengBanner>
+
+</RelativeLayout>

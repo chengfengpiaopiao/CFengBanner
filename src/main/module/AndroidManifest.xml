@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.grice.cfengbanner" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.android.grice.cfengbanner.CfBannerApplication"
+        android:allowBackup="true"
+        android:minSdkVersion="19"
+        android:supportsRtl="true"
+        android:label="CFengBanner">
+
+        <activity android:name="com.android.grice.cfengbanner.BannerMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>

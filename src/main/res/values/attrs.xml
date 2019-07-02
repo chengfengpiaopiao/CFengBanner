@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CFengBanner">
+        <!--默认提供的ViewPager容器-->
+        <attr name="cf_banner_default_banner_view" format="reference"/>
+        <!--默认配置的Banner子页面-->
+        <attr name="cf_banner_item_default" format="reference"/>
+
+        <!--默认配置的底部索引页面-->
+        <attr name="cf_banner_index_container" format="reference"/>
+        <!--索引位置-->
+        <!--索引间距-->
+        <attr name="cf_index_margin" format="float"/>
+        <attr name="cf_index_select" format="reference"/>
+        <attr name="cf_index_unselect" format="reference"/>
+
+        <!--页面间距-->
+        <attr name="cf_view_page_margin" format="dimension"/>
+        <!--banner之间的间距-->
+        <attr name="cf_banner_page_margin" format="dimension"/>
+        <!--非选中Page的缩放比-->
+        <attr name="cf_un_checked_page_scale" format="float"/>
+        <!--是否允许过渡滑动-->
+        <attr name="cf_allow_over_scroller" format="boolean"/>
+
+        <!--是否需要加载系统加载UrlList数据-->
+        <attr name="cf_system_provider_load_url" format="boolean"/>
+
+        <!--是否自动滚动-->
+        <attr name="cf_auto_scroller" format="boolean"/>
+        <!--滚动时长-->
+        <attr name="cf_auto_time" format="integer"/>
+
+        <!--图片圆角半径-->
+        <attr name="cf_img_radius" format="dimension"/>
+        <!--图片阴影半径-->
+        <attr name="cf_img_shade_radius" format="dimension"/>
+        <!--图片阴影颜色-->
+        <attr name="cf_img_shade_color" format="color"/>
+        <!--是否使用palette-->
+        <attr name="cf_use_palette" format="boolean"/>
+
+        <!--图片宽度-->
+        <attr name="cf_banner_img_width" format="dimension"/>
+        <!--图片高度-->
+        <attr name="cf_banner_img_height" format="dimension"/>
+        <!--图片缩放比例-->
+        <attr name="cf_banner_img_scale" format="float"/>
+    </declare-styleable>
+
+</resources>
